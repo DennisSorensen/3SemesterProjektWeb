@@ -3,27 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Web.Models;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Info()
+        public ActionResult Index()
         {
-            ViewBag.Message = "info";
-            BookingVM book = new BookingVM();
-            book.Name = "Her kan du booke en tid til support";
-
             return View();
         }
 
-        public ActionResult Book()
+        public ActionResult About()
         {
-            ViewBag.Message = "Book tid";
-            BookingVM book = new BookingVM();
-            book.Name = "Her kan du booke en tid til support";
-
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
