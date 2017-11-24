@@ -9,17 +9,324 @@
 //------------------------------------------------------------------------------
 
 namespace Web.BookingServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Booking", Namespace="http://schemas.datacontract.org/2004/07/WCF.ModelLayer")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Web.BookingServiceReference.SupportBooking))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Web.BookingServiceReference.ReadyToGo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Web.BookingServiceReference.SupportTask))]
+    public partial class Booking : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BookingTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Calendar_IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int User_IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BookingType {
+            get {
+                return this.BookingTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BookingTypeField, value) != true)) {
+                    this.BookingTypeField = value;
+                    this.RaisePropertyChanged("BookingType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Calendar_Id {
+            get {
+                return this.Calendar_IdField;
+            }
+            set {
+                if ((this.Calendar_IdField.Equals(value) != true)) {
+                    this.Calendar_IdField = value;
+                    this.RaisePropertyChanged("Calendar_Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int User_Id {
+            get {
+                return this.User_IdField;
+            }
+            set {
+                if ((this.User_IdField.Equals(value) != true)) {
+                    this.User_IdField = value;
+                    this.RaisePropertyChanged("User_Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SupportBooking", Namespace="http://schemas.datacontract.org/2004/07/WCF.ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class SupportBooking : Web.BookingServiceReference.Booking {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PhoneField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((this.PhoneField.Equals(value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReadyToGo", Namespace="http://schemas.datacontract.org/2004/07/WCF.ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class ReadyToGo : Web.BookingServiceReference.Booking {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AppendixNrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ContractField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProductNrField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AppendixNr {
+            get {
+                return this.AppendixNrField;
+            }
+            set {
+                if ((this.AppendixNrField.Equals(value) != true)) {
+                    this.AppendixNrField = value;
+                    this.RaisePropertyChanged("AppendixNr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Contract {
+            get {
+                return this.ContractField;
+            }
+            set {
+                if ((this.ContractField.Equals(value) != true)) {
+                    this.ContractField = value;
+                    this.RaisePropertyChanged("Contract");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProductNr {
+            get {
+                return this.ProductNrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductNrField, value) != true)) {
+                    this.ProductNrField = value;
+                    this.RaisePropertyChanged("ProductNr");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SupportTask", Namespace="http://schemas.datacontract.org/2004/07/WCF.ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class SupportTask : Web.BookingServiceReference.Booking {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BookingServiceReference.IBookingService")]
     public interface IBookingService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/DoWork", ReplyAction="http://tempuri.org/IBookingService/DoWorkResponse")]
-        void DoWork();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportTask", ReplyAction="http://tempuri.org/IBookingService/CreateSupportTaskResponse")]
+        void CreateSupportTask(Web.BookingServiceReference.SupportTask supportTask);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/DoWork", ReplyAction="http://tempuri.org/IBookingService/DoWorkResponse")]
-        System.Threading.Tasks.Task DoWorkAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportTask", ReplyAction="http://tempuri.org/IBookingService/CreateSupportTaskResponse")]
+        System.Threading.Tasks.Task CreateSupportTaskAsync(Web.BookingServiceReference.SupportTask supportTask);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportBooking", ReplyAction="http://tempuri.org/IBookingService/CreateSupportBookingResponse")]
+        void CreateSupportBooking(Web.BookingServiceReference.SupportBooking supportBooking);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportBooking", ReplyAction="http://tempuri.org/IBookingService/CreateSupportBookingResponse")]
+        System.Threading.Tasks.Task CreateSupportBookingAsync(Web.BookingServiceReference.SupportBooking supportBooking);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateReadyToGo", ReplyAction="http://tempuri.org/IBookingService/CreateReadyToGoResponse")]
+        void CreateReadyToGo(Web.BookingServiceReference.ReadyToGo readyToGo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateReadyToGo", ReplyAction="http://tempuri.org/IBookingService/CreateReadyToGoResponse")]
+        System.Threading.Tasks.Task CreateReadyToGoAsync(Web.BookingServiceReference.ReadyToGo readyToGo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +356,28 @@ namespace Web.BookingServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void DoWork() {
-            base.Channel.DoWork();
+        public void CreateSupportTask(Web.BookingServiceReference.SupportTask supportTask) {
+            base.Channel.CreateSupportTask(supportTask);
         }
         
-        public System.Threading.Tasks.Task DoWorkAsync() {
-            return base.Channel.DoWorkAsync();
+        public System.Threading.Tasks.Task CreateSupportTaskAsync(Web.BookingServiceReference.SupportTask supportTask) {
+            return base.Channel.CreateSupportTaskAsync(supportTask);
+        }
+        
+        public void CreateSupportBooking(Web.BookingServiceReference.SupportBooking supportBooking) {
+            base.Channel.CreateSupportBooking(supportBooking);
+        }
+        
+        public System.Threading.Tasks.Task CreateSupportBookingAsync(Web.BookingServiceReference.SupportBooking supportBooking) {
+            return base.Channel.CreateSupportBookingAsync(supportBooking);
+        }
+        
+        public void CreateReadyToGo(Web.BookingServiceReference.ReadyToGo readyToGo) {
+            base.Channel.CreateReadyToGo(readyToGo);
+        }
+        
+        public System.Threading.Tasks.Task CreateReadyToGoAsync(Web.BookingServiceReference.ReadyToGo readyToGo) {
+            return base.Channel.CreateReadyToGoAsync(readyToGo);
         }
     }
 }

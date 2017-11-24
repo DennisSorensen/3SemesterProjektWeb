@@ -153,6 +153,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="DataAccessLayer\BookingService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BookingServiceReference\BookingService.disco" />
+    <None Include="Connected Services\BookingServiceReference\BookingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BookingServiceReference\BookingService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BookingServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\BookingServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\BookingServiceReference\Reference.svcmap">
@@ -200,7 +207,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -210,7 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DataAccessLayer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

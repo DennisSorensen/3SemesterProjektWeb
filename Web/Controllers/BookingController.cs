@@ -9,19 +9,23 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Info()
         {
+            ViewBag.Message = "info";
+            BookingVM book = new BookingVM();
+            book.Name = "Her kan du booke en tid til support";
+
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Book()
         {
-            ViewBag.Message = "Your application description page.";
-            BookingVM hest = new BookingVM();
-            hest.Name = "book tid";
+            ViewBag.Message = "Book tid";
+            BookingVM book = new BookingVM();
+            book.Name = "Her kan du booke en tid til support";
 
 
-            return View(hest);
+            return View();
         }
 
         public ActionResult Contact()

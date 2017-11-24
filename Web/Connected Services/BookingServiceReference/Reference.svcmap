@@ -24,6 +24,8 @@
   <Metadata>
     <MetadataFile FileName="BookingService.xsd" MetadataType="Schema" ID="1892f93c-e603-43af-9056-75d67e0020c6" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd0" />
     <MetadataFile FileName="BookingService.disco" MetadataType="Disco" ID="e8eb88cc-a29a-4c10-b207-af738062666f" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?disco" />
+    <MetadataFile FileName="BookingService1.xsd" MetadataType="Schema" ID="1ed72378-6e7b-4dfd-95e1-c8cdb7d112fb" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BookingService11.xsd" MetadataType="Schema" ID="718b0d7d-8ab8-46af-9c47-fddf54750f1e" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd2" />
     <MetadataFile FileName="BookingService.wsdl" MetadataType="Wsdl" ID="53a53d03-31e6-407a-9ad8-5c6d49525c06" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?wsdl" />
   </Metadata>
   <Extensions>
