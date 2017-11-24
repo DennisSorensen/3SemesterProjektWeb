@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Web.BookingServiceReference;
+using Web.DataAccessLayer;
 
 namespace Web.BLL
 {
@@ -13,9 +15,9 @@ namespace Web.BLL
 
         }
 
-        public void Create (Booking booking)
+        public void Create (SupportBooking supportBooking)
         {
-
+            BookingService.CreateSupportBooking()
         }
 
         public void Delete(int Id)
