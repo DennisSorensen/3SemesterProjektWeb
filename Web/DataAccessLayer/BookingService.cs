@@ -10,7 +10,7 @@ namespace Web.DataAccessLayer
         //Vi laver en istans af vores service reference client
         BookingServiceReference.IBookingService bookingService = new BookingServiceReference.BookingServiceClient();
 
-        public void createSupportBooking(BookingServiceReference.SupportBooking supportBooking)
+        public void CreateSupportBooking(BookingServiceReference.SupportBooking supportBooking)
         {
             bookingService.CreateSupportBooking(supportBooking);
 
