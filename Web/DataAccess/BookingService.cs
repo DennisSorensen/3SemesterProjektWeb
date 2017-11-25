@@ -2,21 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Web.BookingServiceReference;
 
 namespace Web.DataAccess
 {
     public class BookingService
     {
         //Laver en instans af vores service reference, sådan vi kan kalde dem
-        BookingServiceReference.IBookingService bookingService = new BookingServiceReference.BookingServiceClient();
+        IBookingService bookingService = new BookingServiceClient();
 
         public BookingService()
         {
 
         }
-        public void CreateSupportbooking(BookingServiceReference.SupportBooking supportBooking)
+        public void CreateSupportbooking(SupportBooking supportBooking)
         {
             bookingService.CreateSupportBooking(supportBooking);
+        }
+
+        public SupportBooking GetSupportBooking(int id)
+        {
+            return bookingService.GetSupportBooking(id);
         }
     }
 }

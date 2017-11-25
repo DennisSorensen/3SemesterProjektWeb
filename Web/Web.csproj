@@ -189,6 +189,9 @@
     <None Include="Connected Services\BookingServiceReference\BookingService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\BookingServiceReference\Web.BookingServiceReference.SupportBooking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
