@@ -24,5 +24,11 @@ namespace Web.DataAccess
         {
             return bookingService.GetSupportBooking(id);
         }
+
+        public List<Department> GetAllDepartments()
+        {
+            return null;
+
+        }
     }
 }

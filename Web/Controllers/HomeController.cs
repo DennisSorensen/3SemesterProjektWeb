@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.DataAccess;
 using Web.Models;
 
 namespace Web.Controllers
@@ -16,10 +17,13 @@ namespace Web.Controllers
 
         public ActionResult Booking()
         {
-            BookingVM model = new BookingVM();
-            model.Departments = new List<DepartmentVM>();
+            BookingVM bookingVM = new BookingVM();
+            bookingVM.Departments = new List<DepartmentVM>();
+            BookingService bookingService = new BookingService();
+
+           //bookingVM.Departments = bookingService.GetAllDepartments(....);
             
-            return View(model);
+            return View(bookingVM);
         }
 
         public ActionResult Kontakt()
