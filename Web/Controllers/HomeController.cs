@@ -26,6 +26,13 @@ namespace Web.Controllers
             return View(bookingVM);
         }
 
+        public ActionResult SelectDepartment()
+        {
+            DepartmentListVM model = new DepartmentListVM();
+            model.Departments.Add(new DepartmentVM() { Id = 9, Name = "Hjørring" }); //fra db
+            return View(model);
+        }
+
         public ActionResult Kontakt()
         {
            

@@ -1,0 +1,16 @@
+﻿@model Web.Models.DepartmentListVM
+@{
+    ViewBag.Title = "SelectDepartment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Department</h2>
+<div>
+    @foreach (var department in Model.Departments)
+    {
+        <p>
+            @Html.ActionLink(department.Name, "SelectTime", "Home", new { id = department.Id }, null)
+        </p>
+    }
+</div>
+
