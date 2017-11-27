@@ -1,10 +1,24 @@
-﻿@{
-    ViewBag.Title = "Booking";
+﻿@model Web.Models.BookingVM
+@{
+    ViewBag.Title = "Book en supporter";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h1>@ViewBag.Title</h1>
 
-<h2>Book en supporter</h2>
-<h1>Book en supporter</h1>
+
+<h3>1. Vælg butik</h3>
+
+<select class="dropdown">
+    @foreach (var department in Model.Departments)
+    { <option value="@department.Id">@department.Name</option>}
+    
+</select>
+
+<h3>2. Vælg medarbejder</h3>
+
+<select class="dropdown"> 
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+</select>
 
 
