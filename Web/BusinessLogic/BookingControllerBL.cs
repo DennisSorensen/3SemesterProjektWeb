@@ -29,6 +29,10 @@ namespace Web.BusinessLogic
 
         }
 
+        public IEnumerable<User> GetAllDepSupport(int id)
+        {
+            return bookingService.GetAllDepSupport(id);
+        }
     }
 
     

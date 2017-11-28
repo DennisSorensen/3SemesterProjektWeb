@@ -18,14 +18,6 @@ namespace Web.Controllers
             return View();
         }
 
-        public ActionResult Booking()
-        {
-                       
-
-                    
-            return View();
-        }
-
         public ActionResult SelectDepartment()
         {
             IEnumerable<Department> list = bookingControllerBL.GetAllDeparments();
@@ -50,6 +42,26 @@ namespace Web.Controllers
            
 
             return View();
+        }
+
+        public ActionResult SelectEmployee(int id)
+        {
+
+            IEnumerable<User> List = bookingControllerBL.GetAllDepSupport(id);
+            SupporterListVM supporterListVM = new SupporterListVM();
+
+            foreach (var user in List)
+            {
+                SupporterVM supporterVM = new SupporterVM();
+                supporterVM.Id = user.Id;
+                supporterVM.FirstName = user.FirstName;
+                supporterVM.LastName = user.LastName;
+                supporterListVM.Supporters.Add(supporterVM);
+
+            }
+
+
+            return View(supporterListVM);
         }
     }
 }

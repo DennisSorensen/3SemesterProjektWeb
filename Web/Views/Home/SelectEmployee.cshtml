@@ -1,17 +1,17 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "SelectEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Vælg Medarbejder</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+<div>
+
+    @foreach (var employee in Model.Supporters)
+    {
+       
+
+    }
+
+
+</div>

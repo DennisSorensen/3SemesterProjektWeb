@@ -5,10 +5,15 @@ using System.Web;
 
 namespace Web.Models
 {
-    public class BookingVM
+    public class SupporterListVM
     {
-        public List<DepartmentVM> Departments { get; set; }
         public List<SupporterVM> Supporters { get; set; }
-    }
+        public SupporterListVM()
+        {
+            Supporters = new List<SupporterVM>();
 
+        }
+
+       
+    }
 }

@@ -33,5 +33,11 @@ namespace Web.DataAccess
             return userService.GetAllDepartments() ;
 
         }
+
+        public IEnumerable<User> GetAllDepSupport(int id)
+        {
+
+            return userService.GetAllDepSupport(id);
+        }
     }
 }
