@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.BusinessLogic;
 using Web.DataAccess;
 using Web.Models;
+using Web.UserServiceReference;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        BookingControllerBL bookingControllerBL = new BookingControllerBL();
         public ActionResult Index()
         {
             return View();
@@ -17,20 +20,29 @@ namespace Web.Controllers
 
         public ActionResult Booking()
         {
-            BookingVM bookingVM = new BookingVM();
-            bookingVM.Departments = new List<DepartmentVM>();
-            BookingService bookingService = new BookingService();
+                       
 
-           //bookingVM.Departments = bookingService.GetAllDepartments(....);
-            
-            return View(bookingVM);
+                    
+            return View();
         }
 
         public ActionResult SelectDepartment()
         {
-            DepartmentListVM model = new DepartmentListVM();
-            model.Departments.Add(new DepartmentVM() { Id = 9, Name = "Hjørring" }); //fra db
-            return View(model);
+            IEnumerable<Department> list = bookingControllerBL.GetAllDeparments();
+            DepartmentListVM departmentListVM = new DepartmentListVM();
+
+            foreach (var Department in list)
+            {
+                DepartmentVM departmentVM = new DepartmentVM();
+                departmentVM.Id = Department.Id;
+                departmentVM.Name = Department.Name;
+                departmentListVM.Departments.Add(departmentVM);
+
+                
+            }
+            
+            return View(departmentListVM);
+           
         }
 
         public ActionResult Kontakt()

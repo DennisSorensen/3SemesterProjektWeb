@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Web.BookingServiceReference;
 using Web.DataAccess;
+using Web.UserServiceReference;
 
 namespace Web.BusinessLogic
 {
@@ -22,6 +23,11 @@ namespace Web.BusinessLogic
             bookingService.CreateSupportbooking(supportBooking);
         }
 
+        public IEnumerable<Department> GetAllDeparments()
+        {
+            return bookingService.GetAllDepartments();
+
+        }
 
     }
 

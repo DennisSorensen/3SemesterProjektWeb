@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Web.BookingServiceReference;
+using Web.Models;
+using Web.UserServiceReference;
 
 namespace Web.DataAccess
 {
@@ -10,6 +12,7 @@ namespace Web.DataAccess
     {
         //Laver en instans af vores service reference, sådan vi kan kalde dem
         IBookingService bookingService = new BookingServiceClient();
+        IUserService userService = new UserServiceClient();
 
         public BookingService()
         {
@@ -25,10 +28,10 @@ namespace Web.DataAccess
             return bookingService.GetSupportBooking(id);
         }
 
-        //public List<Department> GetAllDepartments()
-        //{
-        //    return null;
+        public IEnumerable<Department> GetAllDepartments()
+        {
+            return userService.GetAllDepartments() ;
 
-        //}
+        }
     }
 }
