@@ -23,7 +23,7 @@ namespace Web.UserServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DepartmentField;
+        private int DepartmentIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
@@ -51,14 +51,14 @@ namespace Web.UserServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Department {
+        public int DepartmentId {
             get {
-                return this.DepartmentField;
+                return this.DepartmentIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.DepartmentField, value) != true)) {
-                    this.DepartmentField = value;
-                    this.RaisePropertyChanged("Department");
+                if ((this.DepartmentIdField.Equals(value) != true)) {
+                    this.DepartmentIdField = value;
+                    this.RaisePropertyChanged("DepartmentId");
                 }
             }
         }
@@ -232,6 +232,12 @@ namespace Web.UserServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllDepartments", ReplyAction="http://tempuri.org/IUserService/GetAllDepartmentsResponse")]
         System.Threading.Tasks.Task<Web.UserServiceReference.Department[]> GetAllDepartmentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllDepSupport", ReplyAction="http://tempuri.org/IUserService/GetAllDepSupportResponse")]
+        Web.UserServiceReference.User[] GetAllDepSupport(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllDepSupport", ReplyAction="http://tempuri.org/IUserService/GetAllDepSupportResponse")]
+        System.Threading.Tasks.Task<Web.UserServiceReference.User[]> GetAllDepSupportAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -299,6 +305,14 @@ namespace Web.UserServiceReference {
         
         public System.Threading.Tasks.Task<Web.UserServiceReference.Department[]> GetAllDepartmentsAsync() {
             return base.Channel.GetAllDepartmentsAsync();
+        }
+        
+        public Web.UserServiceReference.User[] GetAllDepSupport(int id) {
+            return base.Channel.GetAllDepSupport(id);
+        }
+        
+        public System.Threading.Tasks.Task<Web.UserServiceReference.User[]> GetAllDepSupportAsync(int id) {
+            return base.Channel.GetAllDepSupportAsync(id);
         }
     }
 }

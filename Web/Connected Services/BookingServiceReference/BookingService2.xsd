@@ -47,4 +47,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ReadyToGo" nillable="true" type="tns:ReadyToGo" />
+  <xs:complexType name="ArrayOfSupportTask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupportTask" nillable="true" type="tns:SupportTask" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupportTask" nillable="true" type="tns:ArrayOfSupportTask" />
+  <xs:complexType name="ArrayOfSupportBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupportBooking" nillable="true" type="tns:SupportBooking" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupportBooking" nillable="true" type="tns:ArrayOfSupportBooking" />
+  <xs:complexType name="ArrayOfReadyToGo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReadyToGo" nillable="true" type="tns:ReadyToGo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReadyToGo" nillable="true" type="tns:ArrayOfReadyToGo" />
 </xs:schema>

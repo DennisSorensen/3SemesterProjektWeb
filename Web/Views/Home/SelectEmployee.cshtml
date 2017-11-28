@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Web.Models.SupporterListVM
+@{
     ViewBag.Title = "SelectEmployee";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,9 +8,11 @@
 
 <div>
 
-    @foreach (var employee in Model.Supporters)
+    @foreach (var supporter in Model.Supporters)
     {
-       
+        <p>
+           @Html.ActionLink(supporter.FirstName + supporter.LastName, "SelectDate", "Home", new { id = supporter.Id }, null)
+        </p>
 
     }
 

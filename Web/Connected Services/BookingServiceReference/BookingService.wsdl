@@ -31,6 +31,24 @@
   <wsdl:message name="IBookingService_GetSupportBooking_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSupportBookingResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllSupportTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupportTask" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllSupportTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupportTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllSupportBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupportBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllSupportBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSupportBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllReadyToGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReadyToGo" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllReadyToGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllReadyToGoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingService">
     <wsdl:operation name="CreateSupportTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateSupportTask" message="tns:IBookingService_CreateSupportTask_InputMessage" />
@@ -47,6 +65,18 @@
     <wsdl:operation name="GetSupportBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetSupportBooking" message="tns:IBookingService_GetSupportBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetSupportBookingResponse" message="tns:IBookingService_GetSupportBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupportTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllSupportTask" message="tns:IBookingService_GetAllSupportTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllSupportTaskResponse" message="tns:IBookingService_GetAllSupportTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupportBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllSupportBooking" message="tns:IBookingService_GetAllSupportBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllSupportBookingResponse" message="tns:IBookingService_GetAllSupportBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReadyToGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllReadyToGo" message="tns:IBookingService_GetAllReadyToGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllReadyToGoResponse" message="tns:IBookingService_GetAllReadyToGo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBookingService" type="tns:IBookingService">
@@ -80,6 +110,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetSupportBooking">
       <soap:operation soapAction="http://tempuri.org/IBookingService/GetSupportBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupportTask">
+      <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllSupportTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSupportBooking">
+      <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllSupportBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReadyToGo">
+      <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllReadyToGo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -333,6 +333,24 @@ namespace Web.BookingServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetSupportBooking", ReplyAction="http://tempuri.org/IBookingService/GetSupportBookingResponse")]
         System.Threading.Tasks.Task<Web.BookingServiceReference.SupportBooking> GetSupportBookingAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSupportTask", ReplyAction="http://tempuri.org/IBookingService/GetAllSupportTaskResponse")]
+        Web.BookingServiceReference.SupportTask[] GetAllSupportTask(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSupportTask", ReplyAction="http://tempuri.org/IBookingService/GetAllSupportTaskResponse")]
+        System.Threading.Tasks.Task<Web.BookingServiceReference.SupportTask[]> GetAllSupportTaskAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSupportBooking", ReplyAction="http://tempuri.org/IBookingService/GetAllSupportBookingResponse")]
+        Web.BookingServiceReference.SupportBooking[] GetAllSupportBooking(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSupportBooking", ReplyAction="http://tempuri.org/IBookingService/GetAllSupportBookingResponse")]
+        System.Threading.Tasks.Task<Web.BookingServiceReference.SupportBooking[]> GetAllSupportBookingAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllReadyToGo", ReplyAction="http://tempuri.org/IBookingService/GetAllReadyToGoResponse")]
+        Web.BookingServiceReference.ReadyToGo[] GetAllReadyToGo(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllReadyToGo", ReplyAction="http://tempuri.org/IBookingService/GetAllReadyToGoResponse")]
+        System.Threading.Tasks.Task<Web.BookingServiceReference.ReadyToGo[]> GetAllReadyToGoAsync(int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -392,6 +410,30 @@ namespace Web.BookingServiceReference {
         
         public System.Threading.Tasks.Task<Web.BookingServiceReference.SupportBooking> GetSupportBookingAsync(int id) {
             return base.Channel.GetSupportBookingAsync(id);
+        }
+        
+        public Web.BookingServiceReference.SupportTask[] GetAllSupportTask(int userId) {
+            return base.Channel.GetAllSupportTask(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Web.BookingServiceReference.SupportTask[]> GetAllSupportTaskAsync(int userId) {
+            return base.Channel.GetAllSupportTaskAsync(userId);
+        }
+        
+        public Web.BookingServiceReference.SupportBooking[] GetAllSupportBooking(int userId) {
+            return base.Channel.GetAllSupportBooking(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Web.BookingServiceReference.SupportBooking[]> GetAllSupportBookingAsync(int userId) {
+            return base.Channel.GetAllSupportBookingAsync(userId);
+        }
+        
+        public Web.BookingServiceReference.ReadyToGo[] GetAllReadyToGo(int userId) {
+            return base.Channel.GetAllReadyToGo(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Web.BookingServiceReference.ReadyToGo[]> GetAllReadyToGoAsync(int userId) {
+            return base.Channel.GetAllReadyToGoAsync(userId);
         }
     }
 }
