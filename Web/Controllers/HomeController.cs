@@ -63,5 +63,14 @@ namespace Web.Controllers
 
             return View(supporterListVM);
         }
+
+        public ActionResult SelectDate(int id)
+        {
+            
+
+            return View();
+        }
+
+        public IEnumerable<Session> GetAvailableSessions()
     }
 }

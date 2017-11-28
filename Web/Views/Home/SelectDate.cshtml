@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "SelectDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vælg Dato</h2>
+
+<form action="~/Views/Home/SelectDate.cshtml">
+    Dato:
+    <input type="date" name="dato" />
+    <button onclick="GetAvailableSessions(Date)">Find ledige tider</button>
+</form>
+
+<h2>Ledige tider</h2>
+
+@foreach ()
+{
+
+}

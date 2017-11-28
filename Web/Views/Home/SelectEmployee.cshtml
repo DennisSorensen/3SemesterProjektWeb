@@ -11,7 +11,7 @@
     @foreach (var supporter in Model.Supporters)
     {
         <p>
-           @Html.ActionLink(supporter.FirstName + supporter.LastName, "SelectDate", "Home", new { id = supporter.Id }, null)
+           @Html.ActionLink(supporter.FullName, "SelectDate", "Home", new { id = supporter.Id }, null)
         </p>
 
     }

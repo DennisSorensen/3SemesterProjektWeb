@@ -257,6 +257,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SelectDepartment.cshtml" />
     <Content Include="Views\Home\SelectEmployee.cshtml" />
+    <Content Include="Views\Home\SelectDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
