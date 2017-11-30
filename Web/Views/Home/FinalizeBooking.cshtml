@@ -7,12 +7,21 @@
 
 <h4>Udfyld nedenstående felter</h4>
 
-<form action="/home/">
+<div class="container">
+    <form action="/action_page.php">
+        <label for="fname">Fornavn</label><br />
+        <input type="text" id="fname" name="fornavn" placeholder="Fornavn"><br />
+        <br />
+        <label for="lname">Efternavn</label><br />
+        <input type="text" id="lname" name="efternavn" placeholder="Efternavn"><br />
+        <br />
+        <label for="phone">Telefon nr.</label><br />
+        <input type="text" id="lname" name="telefon" placeholder="Telefon nr."><br />
+        <br />
 
-    Fornavn: <input type="text" name="FirstName" value="" /><br />
-    Efternavn: <input type="text" name="LastName" value="" /><br />
-    Telefon: <input type="number" name="Phone" value="" /><br />
-    Beskrivelse af problem: <textarea rows="8" cols="100" placeholder="beskrivelse her">
-</textarea>
-
-</form>
+        <label for="subject">Beskrivelse</label> <br />
+        <textarea id="subject" name="beskrivelse" placeholder="Beskrivelse af problemet" style="height:200px"></textarea><br />
+        <br />
+        <input type="submit" value="Indsend">
+    </form>
+</div>
