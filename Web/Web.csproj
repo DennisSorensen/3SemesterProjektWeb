@@ -161,9 +161,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AvailableSessionsListVM.cs" />
     <Compile Include="Models\BookingVM.cs" />
     <Compile Include="Models\DepartmentListVM.cs" />
     <Compile Include="Models\DepartmentVM.cs" />
+    <Compile Include="Models\SessionVM.cs" />
     <Compile Include="Models\SupporterListVM.cs" />
     <Compile Include="Models\SupporterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,6 +260,7 @@
     <Content Include="Views\Home\SelectDepartment.cshtml" />
     <Content Include="Views\Home\SelectEmployee.cshtml" />
     <Content Include="Views\Home\SelectDate.cshtml" />
+    <Content Include="Views\Home\FinalizeBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

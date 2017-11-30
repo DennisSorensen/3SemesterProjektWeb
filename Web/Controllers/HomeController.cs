@@ -70,8 +70,26 @@ namespace Web.Controllers
 
             return View();
         }
-        [HttpPost]
-        public ActionResult SelectDate(int userId, DateTime date)
+        
+      //  [HttpPost]
+        //public ActionResult SelectDate(int userId, DateTime date)
+       // {
+
+
+       //     IEnumerable <?> List = bookingControllerBL.GetAvailableSessions(userId, date);
+        //    AvailableSessionsListVM availableSessionsListVM = new AvailableSessionsListVM();
+
+        //    foreach (var ? in List)
+        //    {
+       //         SessionVM sessionVM = new SessionVM();
+        //        sessionVM.
+       //     }
+
+       //     return View();
+
+       // }
+
+        public ActionResult FinalizeBooking()
         {
             return View();
 
