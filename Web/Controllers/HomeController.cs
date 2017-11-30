@@ -66,11 +66,16 @@ namespace Web.Controllers
 
         public ActionResult SelectDate(int id)
         {
-            
+            ViewBag.CurrentId = id;
 
             return View();
         }
+        [HttpPost]
+        public ActionResult SelectDate(int userId, DateTime date)
+        {
+            return View();
 
-        public IEnumerable<Session> GetAvailableSessions()
+        }
+        
     }
 }
