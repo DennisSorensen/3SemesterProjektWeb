@@ -7,8 +7,8 @@ namespace Web.Models
 {
     public class BookingVM
     {
-        public List<DepartmentVM> Departments { get; set; }
-        public List<SupporterVM> Supporters { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 
 }

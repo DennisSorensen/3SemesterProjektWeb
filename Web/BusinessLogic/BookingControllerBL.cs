@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Web.BookingServiceReference;
+using Web.CalendarServiceReference;
 using Web.DataAccess;
 using Web.UserServiceReference;
 
@@ -32,6 +33,22 @@ namespace Web.BusinessLogic
         public IEnumerable<User> GetAllDepSupport(int id)
         {
             return bookingService.GetAllDepSupport(id);
+        }
+
+        public IEnumerable<Booking> GetAllBookingSpecificDay(int calendar_Id, DateTime date)
+
+        {
+
+            return null;
+        }
+
+        public int GetCalendarId(int userId)
+        {
+            Calendar calendar = bookingService.GetCalendar(userId);
+            int calendar_Id = 0;
+            calendar_Id = calendar.Id;
+
+            return calendar_Id;
         }
     }
 

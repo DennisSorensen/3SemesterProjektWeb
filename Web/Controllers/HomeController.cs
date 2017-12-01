@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.BookingServiceReference;
 using Web.BusinessLogic;
 using Web.DataAccess;
 using Web.Models;
@@ -71,23 +72,27 @@ namespace Web.Controllers
             return View();
         }
         
-      //  [HttpPost]
-        //public ActionResult SelectDate(int userId, DateTime date)
-       // {
+       [HttpPost]
+       public ActionResult SelectDate(int userId, DateTime date)
+        {
 
+           int calendar_Id = bookingControllerBL.GetCalendarId(userId);
 
-       //     IEnumerable <?> List = bookingControllerBL.GetAvailableSessions(userId, date);
-        //    AvailableSessionsListVM availableSessionsListVM = new AvailableSessionsListVM();
+           IEnumerable <Booking> List = bookingControllerBL.GetAllBookingSpecificDay(calendar_Id, date);
+           BookingSpecificDayListVM bookingSpecificDayListVM = new BookingSpecificDayListVM();
+           foreach (var booking in List)
+            {
+                BookingVM bookingVM = new BookingVM();
+                bookingVM.StartDate = booking.StartDate;
+                bookingVM.EndDate = booking.EndDate;
+                
+                bookingSpecificDayListVM.Bookings.Add(bookingVM);
 
-        //    foreach (var ? in List)
-        //    {
-       //         SessionVM sessionVM = new SessionVM();
-        //        sessionVM.
-       //     }
+            }
 
-       //     return View();
+            return View(bookingSpecificDayListVM);
 
-       // }
+        }
 
        // public ActionResult FinalizeBooking()
         //{

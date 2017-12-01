@@ -49,6 +49,12 @@
   <wsdl:message name="IBookingService_GetAllReadyToGo_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllReadyToGoResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllBookingSpecificDay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBookingSpecificDay" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_GetAllBookingSpecificDay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBookingSpecificDayResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingService">
     <wsdl:operation name="CreateSupportTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateSupportTask" message="tns:IBookingService_CreateSupportTask_InputMessage" />
@@ -77,6 +83,10 @@
     <wsdl:operation name="GetAllReadyToGo">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllReadyToGo" message="tns:IBookingService_GetAllReadyToGo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllReadyToGoResponse" message="tns:IBookingService_GetAllReadyToGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBookingSpecificDay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDay" message="tns:IBookingService_GetAllBookingSpecificDay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDayResponse" message="tns:IBookingService_GetAllBookingSpecificDay_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBookingService" type="tns:IBookingService">
@@ -137,6 +147,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllReadyToGo">
       <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllReadyToGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBookingSpecificDay">
+      <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllBookingSpecificDay" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
