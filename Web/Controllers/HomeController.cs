@@ -89,11 +89,11 @@ namespace Web.Controllers
 
        // }
 
-        public ActionResult FinalizeBooking()
-        {
-            return View();
+       // public ActionResult FinalizeBooking()
+        //{
+          //  return View();
 
-        }
+//        }
         
     }
 }
