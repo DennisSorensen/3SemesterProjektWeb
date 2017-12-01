@@ -39,7 +39,7 @@ namespace Web.BusinessLogic
 
         {
 
-            return null;
+            return bookingService.GetAllBookingSpecificDay(calendar_Id, date);
         }
 
         public int GetCalendarId(int userId)

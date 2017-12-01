@@ -68,14 +68,14 @@ namespace Web.Controllers
         public ActionResult SelectDate(int id)
         {
             ViewBag.CurrentId = id;
-
-            return View();
+            BookingSpecificDayListVM bookingSpecificDayListVM = new BookingSpecificDayListVM();
+            return View(bookingSpecificDayListVM);
         }
         
        [HttpPost]
        public ActionResult SelectDate(int userId, DateTime date)
         {
-
+            ViewBag.HasClicked = true;
            int calendar_Id = bookingControllerBL.GetCalendarId(userId);
 
            IEnumerable <Booking> List = bookingControllerBL.GetAllBookingSpecificDay(calendar_Id, date);

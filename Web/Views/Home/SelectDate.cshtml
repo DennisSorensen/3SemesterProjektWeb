@@ -13,9 +13,13 @@
     <button>Find ledige tider</button>
 </form>
 
+@if(ViewBag.HasClicked != null && ViewBag.HasClicked == true)
+{
+
+
 <h2>Ledige tider</h2>
 
-@if (Model.Bookings.Count() == 0)
+if (Model.Bookings != null && Model.Bookings.Count() == 0)
 {
     <p>Der er ingen bookings</p>
 }
@@ -27,4 +31,4 @@
         </p>
     }
 </div>
-
+}

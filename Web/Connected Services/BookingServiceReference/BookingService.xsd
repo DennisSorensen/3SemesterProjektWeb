@@ -104,7 +104,7 @@
   <xs:element name="GetAllBookingSpecificDayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllBookingSpecificDayResult" nillable="true" type="q8:ArrayOfReadyToGo" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllBookingSpecificDayResult" nillable="true" type="q8:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

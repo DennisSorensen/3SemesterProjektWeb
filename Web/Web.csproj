@@ -189,6 +189,9 @@
     <Content Include="Connected Services\BookingServiceReference\Web.BookingServiceReference.SupportTask.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\BookingServiceReference\Web.BookingServiceReference.Booking.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\CalendarServiceReference\CalendarService.wsdl" />
     <None Include="Connected Services\CalendarServiceReference\CalendarService.xsd">
       <SubType>Designer</SubType>

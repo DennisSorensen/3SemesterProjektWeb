@@ -353,10 +353,10 @@ namespace Web.BookingServiceReference {
         System.Threading.Tasks.Task<Web.BookingServiceReference.ReadyToGo[]> GetAllReadyToGoAsync(int calendarId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDay", ReplyAction="http://tempuri.org/IBookingService/GetAllBookingSpecificDayResponse")]
-        Web.BookingServiceReference.ReadyToGo[] GetAllBookingSpecificDay(int calendarId, System.DateTime date);
+        Web.BookingServiceReference.Booking[] GetAllBookingSpecificDay(int calendarId, System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDay", ReplyAction="http://tempuri.org/IBookingService/GetAllBookingSpecificDayResponse")]
-        System.Threading.Tasks.Task<Web.BookingServiceReference.ReadyToGo[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date);
+        System.Threading.Tasks.Task<Web.BookingServiceReference.Booking[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -442,11 +442,11 @@ namespace Web.BookingServiceReference {
             return base.Channel.GetAllReadyToGoAsync(calendarId);
         }
         
-        public Web.BookingServiceReference.ReadyToGo[] GetAllBookingSpecificDay(int calendarId, System.DateTime date) {
+        public Web.BookingServiceReference.Booking[] GetAllBookingSpecificDay(int calendarId, System.DateTime date) {
             return base.Channel.GetAllBookingSpecificDay(calendarId, date);
         }
         
-        public System.Threading.Tasks.Task<Web.BookingServiceReference.ReadyToGo[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date) {
+        public System.Threading.Tasks.Task<Web.BookingServiceReference.Booking[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date) {
             return base.Channel.GetAllBookingSpecificDayAsync(calendarId, date);
         }
     }
