@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Web.Models
 {
-    public class BookingAfterDateVM
+    public class BookingFullVM
     {
         public int UserId { get; set; }
         public int CalendarId { get; set; }
-        public DateTime Date { get; set; }
-    }
+        public DateTime StartDate { get; set; }
+    }  
 }

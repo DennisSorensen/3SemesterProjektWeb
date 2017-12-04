@@ -103,17 +103,19 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult timeSelected(FormCollection collection)
         {
-            TempData["hour"] = "hour";
-            TempData["minut"] = "minut";
-            TempData["calendar_Id"] = "calendar_id";
-            TempData["userId"] = "userId";
-            TempData["date"] = "date";
+            
 
             string startHour = collection["hour"];
             string startMinut = collection["minut"];
             string calendarId = collection["calendar_Id"];
             string userId = collection["userId"];
             string date = collection["date"];
+
+            TempData["hour"] = startHour;
+            TempData["minut"] = startMinut;
+            TempData["calendar_Id"] = calendarId;
+            TempData["userId"] = userId;
+            TempData["date"] = date;
             return RedirectToAction("FinalizeBooking");
 
         }
@@ -124,47 +126,55 @@ namespace Web.Controllers
             string calendar_Id = TempData["calendar_Id"].ToString();
             string userId = TempData["userId"].ToString();
             string date = TempData["date"].ToString();
-
-            BookingAfterDateVM bookingAfterDateVM = new BookingAfterDateVM();
-            bookingAfterDateVM.UserId = Convert.ToInt32(userId);
-            bookingAfterDateVM.CalendarId = Convert.ToInt32(calendar_Id);
-             
+            
             // den "gamle" date med 00 timer bliver lavet om til kundens valgte timer
             DateTime PickedDate = Convert.ToDateTime(date);
             TimeSpan ts = new TimeSpan(Convert.ToInt32(hour), Convert.ToInt32(minut), 0);
             PickedDate = PickedDate.Date + ts;
-            // ny og opdateret date sættes ind i booking
-            bookingAfterDateVM.Date = PickedDate;
 
-            ViewBag.BookingAfterDateVM = bookingAfterDateVM;
-
-
-
-
-
+            //// ny og opdateret date sættes ind i booking sammen med resten af variablerne
+            //TempData["booking"] = new BookingFullVM() { UserId = Convert.ToInt32(userId), CalendarId = Convert.ToInt32(calendar_Id, StartDate= PickedDate };
 
             return View();
 
        }
-
+        [HttpPost]
         public ActionResult InformationCollection (FormCollection collection)
         {
-
-            lav collection som i timeselected
-            return RedirectToAction("BookingSucces");
-        }
-
-        public ActionResult BookingSucces()
-        {
-            Her skal vi skal vi have indlæst collection ligesom i finalizebooking
+            string firstName = collection["firstName"];
+            string lastName = collection["lastName"];
+            string phone = collection["phone"];
+            string description = collection["description"];
             
-                her skal vi create den endelige booking
-
-                return View(ny færdig booking)
+            
+            TempData["firstName"] = firstName;
+            TempData["lastName"] = lastName;
+            TempData["phone"] = phone;
+            TempData["description"] =description;
+         
+            return RedirectToAction("BookingSuccess");
         }
 
-        
-        
+        public ActionResult BookingSuccess()
+        {
+            string firstName = TempData["firstName"].ToString();
+            string lastName = TempData["lastName"].ToString();
+            string phone = TempData["phone"].ToString();
+            string description = TempData["description"].ToString();
+
+            bookingFullVM.FirstName = firstName;
+            bookingFullVM.LastName = lastName;
+            bookingFullVM.Phone = phone;
+            bookingFullVM.Description = description;
+
+
+
+
+            return View(bookingFullVM);
+        }
+
+
+
 
 
 
