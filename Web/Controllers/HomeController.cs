@@ -65,10 +65,11 @@ namespace Web.Controllers
             return View(supporterListVM);
         }
 
-        public ActionResult SelectDate(int id)
+        public ActionResult SelectDate(int Id)
         {
-            ViewBag.CurrentId = id;
+            ViewBag.CurrentId = Id;
             BookingSpecificDayListVM bookingSpecificDayListVM = new BookingSpecificDayListVM();
+            
             return View(bookingSpecificDayListVM);
         }
         
@@ -76,9 +77,14 @@ namespace Web.Controllers
        public ActionResult SelectDate(int userId, DateTime date)
         {
             ViewBag.HasClicked = true;
+            ViewBag.CurrentId = userId;
+            ViewBag.PickedDate = date;
+           
            int calendar_Id = bookingControllerBL.GetCalendarId(userId);
 
-           IEnumerable <Booking> List = bookingControllerBL.GetAllBookingSpecificDay(calendar_Id, date);
+            ViewBag.CalendarId = calendar_Id;
+
+           IEnumerable<Booking> List = bookingControllerBL.GetAllBookingSpecificDay(calendar_Id, date);
            BookingSpecificDayListVM bookingSpecificDayListVM = new BookingSpecificDayListVM();
            foreach (var booking in List)
             {
@@ -92,13 +98,76 @@ namespace Web.Controllers
 
             return View(bookingSpecificDayListVM);
 
+            
+        }
+        [HttpPost]
+        public ActionResult timeSelected(FormCollection collection)
+        {
+            TempData["hour"] = "hour";
+            TempData["minut"] = "minut";
+            TempData["calendar_Id"] = "calendar_id";
+            TempData["userId"] = "userId";
+            TempData["date"] = "date";
+
+            string startHour = collection["hour"];
+            string startMinut = collection["minut"];
+            string calendarId = collection["calendar_Id"];
+            string userId = collection["userId"];
+            string date = collection["date"];
+            return RedirectToAction("FinalizeBooking");
+
+        }
+        public ActionResult FinalizeBooking()
+        {
+            string hour = TempData["hour"].ToString();
+            string minut = TempData["minut"].ToString();
+            string calendar_Id = TempData["calendar_Id"].ToString();
+            string userId = TempData["userId"].ToString();
+            string date = TempData["date"].ToString();
+
+            BookingAfterDateVM bookingAfterDateVM = new BookingAfterDateVM();
+            bookingAfterDateVM.UserId = Convert.ToInt32(userId);
+            bookingAfterDateVM.CalendarId = Convert.ToInt32(calendar_Id);
+             
+            // den "gamle" date med 00 timer bliver lavet om til kundens valgte timer
+            DateTime PickedDate = Convert.ToDateTime(date);
+            TimeSpan ts = new TimeSpan(Convert.ToInt32(hour), Convert.ToInt32(minut), 0);
+            PickedDate = PickedDate.Date + ts;
+            // ny og opdateret date sættes ind i booking
+            bookingAfterDateVM.Date = PickedDate;
+
+            ViewBag.BookingAfterDateVM = bookingAfterDateVM;
+
+
+
+
+
+
+            return View();
+
+       }
+
+        public ActionResult InformationCollection (FormCollection collection)
+        {
+
+            lav collection som i timeselected
+            return RedirectToAction("BookingSucces");
         }
 
-       // public ActionResult FinalizeBooking()
-        //{
-          //  return View();
+        public ActionResult BookingSucces()
+        {
+            Her skal vi skal vi have indlæst collection ligesom i finalizebooking
+            
+                her skal vi create den endelige booking
 
-//        }
+                return View(ny færdig booking)
+        }
+
         
+        
+
+
+
+
     }
 }

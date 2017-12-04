@@ -1,34 +1,71 @@
 ﻿@model Web.Models.BookingSpecificDayListVM
+@using Web.Controllers
 @{
     ViewBag.Title = "SelectDate";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Vælg Dato</h2>
+<h3>1. Vælg Dato</h3>
 
 <form action="~/home/SelectDate" method="post">
     <input type="hidden" name="userId" value="@ViewBag.CurrentId" />
     Dato:
     <input type="date" name="date" />
-    <button>Find ledige tider</button>
+    <button>Vis dag</button>
 </form>
 
-@if(ViewBag.HasClicked != null && ViewBag.HasClicked == true)
+@if (ViewBag.HasClicked != null && ViewBag.HasClicked == true)
 {
 
 
-<h2>Ledige tider</h2>
+<h4>Optagede tider</h4>
 
-if (Model.Bookings != null && Model.Bookings.Count() == 0)
-{
+    if (Model.Bookings != null && Model.Bookings.Count() == 0)
+    {
     <p>Der er ingen bookings</p>
 }
-<div>
+    <div>
     @foreach (var booking in Model.Bookings)
     {
         <p>
          Optaget tid: @booking.StartDate - @booking.EndDate
         </p>
     }
-</div>
+    </div>
+    <div>
+        <form action="~/home/timeSelected" method="post">
+            <h3>2. Vælg tidspunkt</h3>
+
+            <p>En supportsession tager 30 min. Vælg nedenfor hvornår du ønsker at starte din session.</p>
+            <p>Time</p>
+            <select id="hour" name="hour">
+                <option value="10"> 10</option>
+                <option value="11"> 11</option>
+                <option value="12"> 12</option>
+                <option value="13"> 13</option>
+                <option value="14"> 14</option>
+                <option value="15"> 15</option>
+                <option value="16"> 16</option>
+                <option value="17"> 17</option>
+                <option value="18"> 18</option>
+                <option value="19"> 19</option>
+
+            </select>
+            <p>Minutter</p>
+            <select id="minut" name="minut">
+                <option value="00"> 00</option>
+                <option value="30"> 30</option>
+
+
+            </select>
+
+            <h3>3. reservér tid </h3>
+
+            <input type="hidden" name="userId" value="@ViewBag.CurrentId" />
+            <input type="hidden" name="date" value="@ViewBag.PickedDate" />
+            <input type="hidden" name="calendar_Id" value="@ViewBag.CalendarId" />
+            <button>Reservér</button>
+        </form>
+        
+    </div>
 }
