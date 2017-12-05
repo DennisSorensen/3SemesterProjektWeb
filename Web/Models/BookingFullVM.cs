@@ -15,5 +15,6 @@ namespace Web.Models
         public string LastName { get; set; }
         public int Phone { get; set; }
         public string Description { get; set; }
+        public string BookingType { get; set; }
     }  
 }

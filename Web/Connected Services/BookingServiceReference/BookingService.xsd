@@ -51,6 +51,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetReadyToGo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReadyToGoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetReadyToGoResult" nillable="true" type="q5:ReadyToGo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupportTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupportTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetSupportTaskResult" nillable="true" type="q6:SupportTask" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBooking">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBookingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetBookingResult" nillable="true" type="q7:Booking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllSupportTask">
     <xs:complexType>
       <xs:sequence>
@@ -61,7 +103,7 @@
   <xs:element name="GetAllSupportTaskResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllSupportTaskResult" nillable="true" type="q5:ArrayOfSupportTask" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllSupportTaskResult" nillable="true" type="q8:ArrayOfSupportTask" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -75,7 +117,7 @@
   <xs:element name="GetAllSupportBookingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllSupportBookingResult" nillable="true" type="q6:ArrayOfSupportBooking" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllSupportBookingResult" nillable="true" type="q9:ArrayOfSupportBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -89,7 +131,7 @@
   <xs:element name="GetAllReadyToGoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllReadyToGoResult" nillable="true" type="q7:ArrayOfReadyToGo" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllReadyToGoResult" nillable="true" type="q10:ArrayOfReadyToGo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -104,7 +146,7 @@
   <xs:element name="GetAllBookingSpecificDayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllBookingSpecificDayResult" nillable="true" type="q8:ArrayOfBooking" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" minOccurs="0" name="GetAllBookingSpecificDayResult" nillable="true" type="q11:ArrayOfBooking" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

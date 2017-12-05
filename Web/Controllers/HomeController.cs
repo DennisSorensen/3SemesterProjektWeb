@@ -160,25 +160,22 @@ namespace Web.Controllers
             supportBooking.LastName = bookingFullVM.LastName;
             supportBooking.Phone = bookingFullVM.Phone;
             supportBooking.Description = bookingFullVM.Description;
-            supportBooking.BookingType = "support";
+            supportBooking.BookingType = "SupportBooking";
             supportBooking.StartDate = bookingFullVM.StartDate;
             supportBooking.EndDate = bookingFullVM.StartDate.AddMinutes(30.0);
 
             bookingControllerBL.CreateSupportBooking(supportBooking);
 
-            return RedirectToAction("BookingSuccess",new { id = supportBooking.Id });
+            TempData["booking"] = new BookingFullVM() { UserId = supportBooking.User_Id, CalendarId = supportBooking.Calendar_Id, FirstName = supportBooking.FirstName, LastName = supportBooking.LastName, Phone = supportBooking.Phone, Description = supportBooking.Description, BookingType = supportBooking.BookingType, StartDate = supportBooking.StartDate, EndDate = supportBooking.EndDate };
+
+            return RedirectToAction("BookingSuccess");
         }
 
-        public ActionResult BookingSuccess(int id)
+        public ActionResult BookingSuccess() 
         {
 
-            BookingFullVM bookingFullVM = bookingControllerBL.GetBooking(id);
             
-
-            
-
-           
-
+            var bookingFullVM = TempData["booking"] as BookingFullVM;
 
             return View(bookingFullVM);
         }
