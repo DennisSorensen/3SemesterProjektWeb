@@ -1,8 +1,14 @@
-﻿@{
+﻿@model Web.Models.BookingFullVM
+@{
     ViewBag.Title = "BookingSuccess";
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+    <h1>Booking gennemført</h1>
+<div>
+    <p>
+        @Model.FirstName
+    </p>
+</div>
 
-    <h1>Hurraaaaa</h1>
-
-    //her skal vi måske vise bookinginformationer
+    
