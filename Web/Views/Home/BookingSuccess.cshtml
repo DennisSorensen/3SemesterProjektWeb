@@ -5,9 +5,12 @@
 }
 
     <h1>Booking gennemført</h1>
+<p>Her kan du se en oversigt over dine booking informationer</p>
 <div>
     <p>
-        @Model.FirstName
+        Navn: @Model.FirstName + " " + @Model.LastName
+        Tlf: @Model.Phone
+        Beskrivelse: @Model.Description
     </p>
 </div>
 
