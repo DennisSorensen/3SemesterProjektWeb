@@ -132,9 +132,10 @@ namespace Web.Controllers
             TimeSpan ts = new TimeSpan(Convert.ToInt32(hour), Convert.ToInt32(minut), 0);
             PickedDate = PickedDate.Date + ts;
 
-            //// ny og opdateret date sættes ind i booking sammen med resten af variablerne
-            //TempData["booking"] = new BookingFullVM() { UserId = Convert.ToInt32(userId), CalendarId = Convert.ToInt32(calendar_Id, StartDate= PickedDate };
+            // ny og opdateret date sættes ind i booking sammen med resten af variablerne
+            TempData["booking"] = new BookingFullVM() {UserId = Convert.ToInt32(userId), CalendarId = Convert.ToInt32(calendar_Id), StartDate = PickedDate};
 
+          
             return View();
 
        }
@@ -145,13 +146,13 @@ namespace Web.Controllers
             string lastName = collection["lastName"];
             string phone = collection["phone"];
             string description = collection["description"];
-            
+
             
             TempData["firstName"] = firstName;
             TempData["lastName"] = lastName;
             TempData["phone"] = phone;
             TempData["description"] =description;
-         
+            TempData.Keep();
             return RedirectToAction("BookingSuccess");
         }
 
@@ -162,12 +163,25 @@ namespace Web.Controllers
             string phone = TempData["phone"].ToString();
             string description = TempData["description"].ToString();
 
+            var bookingFullVM = TempData["booking"] as BookingFullVM;
+
             bookingFullVM.FirstName = firstName;
             bookingFullVM.LastName = lastName;
-            bookingFullVM.Phone = phone;
+            bookingFullVM.Phone = Convert.ToInt32(phone);
             bookingFullVM.Description = description;
 
+            SupportBooking supportBooking = new SupportBooking();
+            supportBooking.User_Id = bookingFullVM.UserId;
+            supportBooking.Calendar_Id = bookingFullVM.CalendarId;
+            supportBooking.FirstName = bookingFullVM.FirstName;
+            supportBooking.LastName = bookingFullVM.LastName;
+            supportBooking.Phone = bookingFullVM.Phone;
+            supportBooking.Description = bookingFullVM.Description;
+            supportBooking.BookingType = "support";
+            supportBooking.StartDate = bookingFullVM.StartDate;
+            supportBooking.EndDate = bookingFullVM.StartDate.AddMinutes(30.0);
 
+            bookingControllerBL.CreateSupportBooking(supportBooking);
 
 
             return View(bookingFullVM);
