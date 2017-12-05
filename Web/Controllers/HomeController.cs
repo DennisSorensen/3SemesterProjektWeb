@@ -146,23 +146,6 @@ namespace Web.Controllers
             string lastName = collection["lastName"];
             string phone = collection["phone"];
             string description = collection["description"];
-
-            
-            TempData["firstName"] = firstName;
-            TempData["lastName"] = lastName;
-            TempData["phone"] = phone;
-            TempData["description"] =description;
-            TempData.Keep();
-            return RedirectToAction("BookingSuccess");
-        }
-
-        public ActionResult BookingSuccess()
-        {
-            string firstName = TempData["firstName"].ToString();
-            string lastName = TempData["lastName"].ToString();
-            string phone = TempData["phone"].ToString();
-            string description = TempData["description"].ToString();
-
             var bookingFullVM = TempData["booking"] as BookingFullVM;
 
             bookingFullVM.FirstName = firstName;
@@ -182,6 +165,19 @@ namespace Web.Controllers
             supportBooking.EndDate = bookingFullVM.StartDate.AddMinutes(30.0);
 
             bookingControllerBL.CreateSupportBooking(supportBooking);
+
+            return RedirectToAction("BookingSuccess",new { id = supportBooking.Id });
+        }
+
+        public ActionResult BookingSuccess(int id)
+        {
+
+            BookingFullVM bookingFullVM = bookingControllerBL.GetBooking(id);
+            
+
+            
+
+           
 
 
             return View(bookingFullVM);

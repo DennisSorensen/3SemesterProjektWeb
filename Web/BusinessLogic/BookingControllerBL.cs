@@ -50,6 +50,11 @@ namespace Web.BusinessLogic
 
             return calendar_Id;
         }
+
+        public SupportBooking GetSupportBooking(int id)
+        {
+            return bookingService.GetSupportBooking(id);
+        }
     }
 
     
