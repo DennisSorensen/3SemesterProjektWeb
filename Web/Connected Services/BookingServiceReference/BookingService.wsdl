@@ -3,6 +3,7 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:49197/BookingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49197/BookingService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCF.Exceptions" />
       <xsd:import schemaLocation="http://localhost:49197/BookingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:49197/BookingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCF.ModelLayer" />
     </xsd:schema>
@@ -12,6 +13,9 @@
   </wsdl:message>
   <wsdl:message name="IBookingService_CreateSupportTask_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateSupportTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_CreateSupportTask_BookingExistsExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WCF.Exceptions" name="detail" element="q1:BookingExistsException" />
   </wsdl:message>
   <wsdl:message name="IBookingService_CreateSupportBooking_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateSupportBooking" />
@@ -73,10 +77,17 @@
   <wsdl:message name="IBookingService_GetAllBookingSpecificDay_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBookingSpecificDayResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_FindAvaliableCalendar_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAvaliableCalendar" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_FindAvaliableCalendar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAvaliableCalendarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingService">
     <wsdl:operation name="CreateSupportTask">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateSupportTask" message="tns:IBookingService_CreateSupportTask_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/CreateSupportTaskResponse" message="tns:IBookingService_CreateSupportTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IBookingService/CreateSupportTaskBookingExistsExceptionFault" name="BookingExistsExceptionFault" message="tns:IBookingService_CreateSupportTask_BookingExistsExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateSupportBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateSupportBooking" message="tns:IBookingService_CreateSupportBooking_InputMessage" />
@@ -118,6 +129,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDay" message="tns:IBookingService_GetAllBookingSpecificDay_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDayResponse" message="tns:IBookingService_GetAllBookingSpecificDay_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="FindAvaliableCalendar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/FindAvaliableCalendar" message="tns:IBookingService_FindAvaliableCalendar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/FindAvaliableCalendarResponse" message="tns:IBookingService_FindAvaliableCalendar_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBookingService" type="tns:IBookingService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -129,6 +144,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="BookingExistsExceptionFault">
+        <soap:fault use="literal" name="BookingExistsExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="CreateSupportBooking">
       <soap:operation soapAction="http://tempuri.org/IBookingService/CreateSupportBooking" style="document" />
@@ -213,6 +231,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllBookingSpecificDay">
       <soap:operation soapAction="http://tempuri.org/IBookingService/GetAllBookingSpecificDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAvaliableCalendar">
+      <soap:operation soapAction="http://tempuri.org/IBookingService/FindAvaliableCalendar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

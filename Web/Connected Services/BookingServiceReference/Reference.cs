@@ -219,6 +219,9 @@ namespace Web.BookingServiceReference {
     public partial class ReadyToGo : Web.BookingServiceReference.Booking {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdditionalServicesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AppendixNrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -226,6 +229,19 @@ namespace Web.BookingServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductNrField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdditionalServices {
+            get {
+                return this.AdditionalServicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdditionalServicesField, value) != true)) {
+                    this.AdditionalServicesField = value;
+                    this.RaisePropertyChanged("AdditionalServices");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int AppendixNr {
@@ -306,11 +322,57 @@ namespace Web.BookingServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BookingExistsException", Namespace="http://schemas.datacontract.org/2004/07/WCF.Exceptions")]
+    [System.SerializableAttribute()]
+    public partial class BookingExistsException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BookingServiceReference.IBookingService")]
     public interface IBookingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportTask", ReplyAction="http://tempuri.org/IBookingService/CreateSupportTaskResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Web.BookingServiceReference.BookingExistsException), Action="http://tempuri.org/IBookingService/CreateSupportTaskBookingExistsExceptionFault", Name="BookingExistsException", Namespace="http://schemas.datacontract.org/2004/07/WCF.Exceptions")]
         void CreateSupportTask(Web.BookingServiceReference.SupportTask supportTask);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/CreateSupportTask", ReplyAction="http://tempuri.org/IBookingService/CreateSupportTaskResponse")]
@@ -375,6 +437,12 @@ namespace Web.BookingServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllBookingSpecificDay", ReplyAction="http://tempuri.org/IBookingService/GetAllBookingSpecificDayResponse")]
         System.Threading.Tasks.Task<Web.BookingServiceReference.Booking[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/FindAvaliableCalendar", ReplyAction="http://tempuri.org/IBookingService/FindAvaliableCalendarResponse")]
+        int FindAvaliableCalendar(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/FindAvaliableCalendar", ReplyAction="http://tempuri.org/IBookingService/FindAvaliableCalendarResponse")]
+        System.Threading.Tasks.Task<int> FindAvaliableCalendarAsync(System.DateTime startDate, System.DateTime endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -490,6 +558,14 @@ namespace Web.BookingServiceReference {
         
         public System.Threading.Tasks.Task<Web.BookingServiceReference.Booking[]> GetAllBookingSpecificDayAsync(int calendarId, System.DateTime date) {
             return base.Channel.GetAllBookingSpecificDayAsync(calendarId, date);
+        }
+        
+        public int FindAvaliableCalendar(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.FindAvaliableCalendar(startDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<int> FindAvaliableCalendarAsync(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.FindAvaliableCalendarAsync(startDate, endDate);
         }
     }
 }

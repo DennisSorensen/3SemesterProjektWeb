@@ -178,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BookingServiceReference\BookingService.disco" />
+    <None Include="Connected Services\BookingServiceReference\BookingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BookingServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\BookingServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\BookingServiceReference\Reference.svcmap">

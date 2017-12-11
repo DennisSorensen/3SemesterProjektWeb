@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:49197/BookingService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="BookingService1.xsd" MetadataType="Schema" ID="c1705977-0c82-41d8-a38e-e2608775f135" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd1" />
     <MetadataFile FileName="BookingService.xsd" MetadataType="Schema" ID="af12d787-c36a-4de5-b8c1-8df0d08f31dd" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd0" />
     <MetadataFile FileName="BookingService.disco" MetadataType="Disco" ID="46261413-691f-47d6-8542-c78d766349b3" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?disco" />
-    <MetadataFile FileName="BookingService1.xsd" MetadataType="Schema" ID="c1705977-0c82-41d8-a38e-e2608775f135" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd1" />
     <MetadataFile FileName="BookingService2.xsd" MetadataType="Schema" ID="33ea188f-aec3-422e-9942-f9945cb2359c" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BookingService3.xsd" MetadataType="Schema" ID="40cdfbc9-8db0-425b-8a85-8c5f62b4ebe5" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?xsd=xsd3" />
     <MetadataFile FileName="BookingService.wsdl" MetadataType="Wsdl" ID="e3b62f33-9876-46ec-8405-0b5950cdb636" SourceId="1" SourceUrl="http://localhost:49197/BookingService.svc?wsdl" />
   </Metadata>
   <Extensions>
