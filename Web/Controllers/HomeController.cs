@@ -164,7 +164,16 @@ namespace Web.Controllers
             supportBooking.StartDate = bookingFullVM.StartDate;
             supportBooking.EndDate = bookingFullVM.StartDate.AddMinutes(30.0);
 
-            bookingControllerBL.CreateSupportBooking(supportBooking);
+            try
+            {
+                bookingControllerBL.CreateSupportBooking(supportBooking);
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("BookingException");
+            }
+            
 
             TempData["booking"] = new BookingFullVM() { UserId = supportBooking.User_Id, CalendarId = supportBooking.Calendar_Id, FirstName = supportBooking.FirstName, LastName = supportBooking.LastName, Phone = supportBooking.Phone, Description = supportBooking.Description, BookingType = supportBooking.BookingType, StartDate = supportBooking.StartDate, EndDate = supportBooking.EndDate };
 
@@ -181,7 +190,11 @@ namespace Web.Controllers
         }
 
 
+        public ActionResult BookingException()
+        {
 
+            return View();
+        }
 
 
 
